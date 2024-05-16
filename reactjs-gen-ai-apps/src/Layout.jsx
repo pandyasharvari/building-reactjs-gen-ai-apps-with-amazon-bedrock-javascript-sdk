@@ -25,15 +25,15 @@ export default () => {
                     activeHref={activeHref}
 
                     header={
-                        { href: "/", text: "Demos" }
+                        { href: "/", text: "HealthScribe AI Assistant" }
                     }
                     items={
                         [
                             {
-                                type: "section", text: "Chat With Amazon Bedrock Multimodal", items: [
+                                type: "section", text: "Chat With AI Assistant", items: [
 /*                                     { type: "link", href: "/llm", text: "Chat Q&A" },
                                     { type: "link", href: "/chat", text: "Chat with Memory" }, */
-                                    { type: "link", href: "/multimodal", text: "Multimodal Chatbot" },
+                                    { type: "link", href: "/multimodal", text: "AI Chatbot" },
 
                                 ]
                             },
@@ -45,14 +45,14 @@ export default () => {
                             { type: "divider" },
 
                             {
-                                type: "section", text: "Knowledge Bases for Amazon Bedrock", items: [
-                                    { type: 'link', text: `Amazon Bedrock Retrieve => LLM`, href: `/retrieve` },
-                                    { type: 'link', text: `Amazon Bedrock Retrieve & Generate`, href: `/retrieveandgenerate` }
+                                type: "section", text: "Knowledge Bases for Healthscribe AI Assistant", items: [
+                                    { type: 'link', text: `Retrieve => LLM`, href: `/retrieve` },
+                                    { type: 'link', text: `Retrieve & Generate`, href: `/retrieveandgenerate` }
                                 ]
                             },
                             { type: "divider" },
                             {
-                                type: "section", text: "Agents for Amazon Bedrock", items: [
+                                type: "section", text: "Agents for HealthScribe AI", items: [
                                 { type: 'link', text: `Agents`, href: `/bedrockagent` },
                             ]
                         }
