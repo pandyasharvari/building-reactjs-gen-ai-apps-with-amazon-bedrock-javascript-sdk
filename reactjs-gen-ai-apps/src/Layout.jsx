@@ -39,7 +39,15 @@ export default () => {
                             },
                             {
                                 type: "section", text: "System Prompts", items: [
-                                    { type: "link", href: "/prompt", text: "Prompts" }
+                                    { type: "link", href: "/prompt", text: "Prompts" },
+                                    
+                                ]
+                            },
+                            //sharvpa code added to create user prompts
+                            {
+                                type: "section", text: "User Prompts", items: [
+                                    { type: "link", href: "/prompt", text: "Prompts" },
+                                    
                                 ]
                             },
                             { type: "divider" },
