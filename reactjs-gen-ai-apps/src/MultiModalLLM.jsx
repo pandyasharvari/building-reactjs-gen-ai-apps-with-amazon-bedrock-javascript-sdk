@@ -36,8 +36,8 @@ export default () => {
     const sendImageAndText = async () => {
         const currentModelId = modelPickerRef.current.getModelId()
         console.log(currentModelId)
-      //sharvpa  const systemPrompt = promptPickerRef.current.getPrompt()
-       const userPrompt =  promptPickerRef.current.getPrompt() //sharvpa added for user prompt
+       const systemPrompt = promptPickerRef.current.getPrompt()
+     //  const userPrompt =  promptPickerRef.current.getPrompt() //sharvpa added for user prompt
         
         setLoading(true)
         let content = await buildContent(value, files)
@@ -51,8 +51,8 @@ export default () => {
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
             }
             console.log(systemPrompt)
-          //sharvpa  if (systemPrompt) body["system"] = systemPrompt
-            if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
+           if (systemPrompt) body["system"] = systemPrompt
+          //  if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
         })
