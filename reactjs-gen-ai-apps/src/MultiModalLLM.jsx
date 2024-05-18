@@ -37,7 +37,8 @@ export default () => {
         const currentModelId = modelPickerRef.current.getModelId()
         console.log(currentModelId)
         const systemPrompt = promptPickerRef.current.getPrompt()
-
+        const userPrompt =  promptPickerRef.current.getPrompt() //sharvpa added for user prompt
+        
         setLoading(true)
         let content = await buildContent(value, files)
         setValue("")
@@ -51,6 +52,7 @@ export default () => {
             }
             console.log(systemPrompt)
             if (systemPrompt) body["system"] = systemPrompt
+            if (userPrompt) body["user"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
         })
