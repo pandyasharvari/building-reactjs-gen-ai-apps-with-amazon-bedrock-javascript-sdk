@@ -36,7 +36,7 @@ export default forwardRef(({ }, ref) => {
         }) : []
         return options
     }
-
+//sharvpa - another Formfiled for userprompt selection
     return (
 
         <Grid gridDefinition={[{ colspan: 12}]}>
@@ -50,6 +50,18 @@ export default forwardRef(({ }, ref) => {
                     options={getOptions()}
                     triggerVariant="option" />
             </FormField>
+            
+         <FormField label="User Prompt">
+                <Select selectedOption={selectedOption}
+                    label="UserPrompt"
+                    onChange={({ detail }) => {
+                        console.log(detail)
+                        setSelectedOption(detail.selectedOption)
+                    }}
+                    options={getOptions()}
+                    triggerVariant="option" />
+            </FormField>
+            
         </Grid>
 
 
