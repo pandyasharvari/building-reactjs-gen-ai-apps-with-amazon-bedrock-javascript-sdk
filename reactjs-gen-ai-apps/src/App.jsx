@@ -6,7 +6,7 @@ import Layout from './Layout'
 import Prompts from "./Prompts"
 import PromptNew from "./PromptNew"
 import Prompt from "./Prompt"
-import UserPrompts from "./UserPrompts" //sharvpa added -user prompts
+//import UserPrompts from "./UserPrompts" //sharvpa added -user prompts
 import UserPromptNew from "./UserPromptNew" //sharvpa added -user prompts
 import UserPrompt from "./UserPrompt"  //sharvpa added -user prompts
 import BedrockKBAndGenerate from "./BedrockKBAndGenerate"
