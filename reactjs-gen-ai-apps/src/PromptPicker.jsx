@@ -6,7 +6,7 @@ import { fetchByValue } from './fetchHelper'
 export default forwardRef(({ }, ref) => {
     const [selectedOption, setSelectedOption] = useState({});
     const [prompts, setPrompts] = useState([{ name: "", prompt: false }])
-    const [userprompts, setPrompts] = useState([{ name: "", prompt: false }]) //sharvpa added for user promptspikcer 
+    const [userprompts, setUserPrompts] = useState([{ name: "", prompt: false }]) //sharvpa added for user promptspikcer 
  
 
     useImperativeHandle(ref, () => ({
@@ -50,7 +50,7 @@ export default forwardRef(({ }, ref) => {
                     options={getOptions()}
                     triggerVariant="option" />
             </FormField>
-  
+  </Grid>
          <Grid gridDefinition={[{ colspan: 12}]}>
    
          <FormField label="User Prompt">
