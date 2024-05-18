@@ -40,7 +40,7 @@ export default forwardRef(({ }, ref) => {
     return (
 
         <Grid gridDefinition={[{ colspan: 12}]}>
-            <FormField label="Sytem Prompt">
+            <FormField label="User Prompt">
                 <Select selectedOption={selectedOption}
                     label="Prompt"
                     onChange={({ detail }) => {
@@ -51,16 +51,7 @@ export default forwardRef(({ }, ref) => {
                     triggerVariant="option" />
             </FormField>
    
-         <FormField label="User Prompt">
-                <Select selectedOption={selectedOption}
-                    label="UserPrompt"
-                    onChange={({ detail }) => {
-                        console.log(detail)
-                        setSelectedOption(detail.selectedOption)
-                    }}
-                    options={getOptions()}
-                    triggerVariant="option" />
-            </FormField>
+
             
         </Grid>
 
