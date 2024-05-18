@@ -6,6 +6,9 @@ import Layout from './Layout'
 import Prompts from "./Prompts"
 import PromptNew from "./PromptNew"
 import Prompt from "./Prompt"
+import UserPrompts from "./UserPrompts" //sharvpa added -user prompts
+import UserPromptNew from "./UserPromptNew" //sharvpa added -user prompts
+import UserPrompt from "./UserPrompt"  //sharvpa added -user prompts
 import BedrockKBAndGenerate from "./BedrockKBAndGenerate"
 import BedrockKBRetrieve from "./BedrockKBRetrieve"
 
@@ -26,6 +29,9 @@ const App = ({ signOut, user }) => {
         { path: "prompt", element: <Prompts /> },
         { path: "prompt/new", element: <PromptNew /> },
         { path: "prompt/:PromptId", element: <Prompt /> },
+        { path: "userprompt", element: <UserPrompts /> },   //sharvpa added -user prompts
+        { path: "useprompt/new", element: <UserPromptNew /> },  //sharvpa added -user prompts
+        { path: "userprompt/:PromptId", element: <UserPrompt /> }, //sharvpa added -user prompts
         { path: "retrieve", element: <BedrockKBRetrieve /> },
         { path: "bedrockagent", element: <BedrockAgent /> },
 
