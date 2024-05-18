@@ -52,7 +52,7 @@ export default () => {
             }
             console.log(systemPrompt)
           //sharvpa  if (systemPrompt) body["system"] = systemPrompt
-            if (userPrompt) body["user"] = userPrompt //sharvpa added for user prompt
+            if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
         })
