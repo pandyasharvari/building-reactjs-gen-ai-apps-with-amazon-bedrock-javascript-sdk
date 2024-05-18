@@ -38,18 +38,18 @@ export default () => {
                                 ]
                             },
                             {
-                                type: "section", text: "System Prompts", items: [
+                                type: "section", text: "User Prompts", items: [ //sharvpa changed from system to use prompts
                                     { type: "link", href: "/prompt", text: "Prompts" },
                                     
                                 ]
                             },
                             //sharvpa code added to create user prompts
-                            {
+                     /*       {
                                 type: "section", text: "User Prompts", items: [
                                     { type: "link", href: "/userprompt", text: "UserPrompts" },
                                     
                                 ]
-                            },
+                            },*/
                             { type: "divider" },
 
                             {
