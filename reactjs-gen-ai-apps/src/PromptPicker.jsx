@@ -6,7 +6,8 @@ import { fetchByValue } from './fetchHelper'
 export default forwardRef(({ }, ref) => {
     const [selectedOption, setSelectedOption] = useState({});
     const [prompts, setPrompts] = useState([{ name: "", prompt: false }])
-
+    const [userprompts, setPrompts] = useState([{ name: "", userprompt: false }]) //sharvpa added for user promptspikcer 
+ 
 
     useImperativeHandle(ref, () => ({
         getPrompt() {
