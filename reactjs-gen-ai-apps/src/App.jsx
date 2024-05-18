@@ -29,7 +29,7 @@ const App = ({ signOut, user }) => {
         { path: "prompt", element: <Prompts /> },
         { path: "prompt/new", element: <PromptNew /> },
         { path: "prompt/:PromptId", element: <Prompt /> },
-        { path: "userprompt", element: <UserPrompts /> },   //sharvpa added -user prompts
+        { path: "userprompt", element: <UserPromptsNew /> },   //sharvpa added -user prompts
         { path: "useprompt/new", element: <UserPromptNew /> },  //sharvpa added -user prompts
         { path: "userprompt/:PromptId", element: <UserPrompt /> }, //sharvpa added -user prompts
         { path: "retrieve", element: <BedrockKBRetrieve /> },
