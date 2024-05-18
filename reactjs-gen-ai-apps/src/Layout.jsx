@@ -46,7 +46,7 @@ export default () => {
                             //sharvpa code added to create user prompts
                             {
                                 type: "section", text: "User Prompts", items: [
-                                    { type: "link", href: "/prompt", text: "Prompts" },
+                                    { type: "link", href: "/userprompt", text: "UserPrompts" },
                                     
                                 ]
                             },
