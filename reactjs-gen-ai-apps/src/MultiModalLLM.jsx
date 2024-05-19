@@ -54,9 +54,9 @@ export default () => {
         setMessages(prev => {
        const history = [...prev, { role: "user", content: content }]
        //const history = [...prev, { role: "user", content: [{ type: "text", text: content }] }] }]
-            const newHistory = history + systemPrompt
+           // const newHistory = history + systemPrompt
             const body = {
-                "messages": history 
+                "messages": history + systemPrompt,
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
             }
             console.log(systemPrompt)
