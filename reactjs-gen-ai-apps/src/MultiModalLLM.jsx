@@ -37,6 +37,15 @@ export default () => {
         const currentModelId = modelPickerRef.current.getModelId()
         console.log(currentModelId)
        const systemPrompt = promptPickerRef.current.getPrompt()
+       const systemPromptReal =  `
+
+    You are a knowledgeable AI assistant that helps health clinicians with medical information and guidance. Provide detailed and accurate answers to the questions based on your extensive knowledge base and available medical guidelines.
+
+    `;
+
+
+  //sharvpa19thMay
+
      //  const userPrompt =  promptPickerRef.current.getPrompt() //sharvpa added for user prompt
         
         setLoading(true)
@@ -47,11 +56,13 @@ export default () => {
         setMessages(prev => {
             const history = [...prev, { role: "user", content: content }]
             const body = {
-                "messages": history,
+              //sharvpa19th may  "messages": history,
+               "messages": history+systemPrompt,
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
             }
             console.log(systemPrompt)
-           if (systemPrompt) body["system"] = systemPrompt
+          //sharvpa 19th may if (systemPrompt) body["system"] = systemPrompt
+            if (systemPromptReal) body["system"] = systemPromptReal
           //  if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
@@ -87,7 +98,7 @@ export default () => {
                 </Box>
                 {
                     llmResponse !== "" ?
-                        <Container fitHeight header={<strong>Respuesta LLM</strong>}>
+                        <Container fitHeight header={<strong>Respuest LLM</strong>}>
                             <div dangerouslySetInnerHTML={{ __html: llmResponse }} />
                         </Container> :
                         null
