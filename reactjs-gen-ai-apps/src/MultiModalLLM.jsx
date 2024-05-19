@@ -50,15 +50,17 @@ export default () => {
         setValue("")
         setFiles([])
         console.log(content)
+
         setMessages(prev => {
        const history = [...prev, { role: "user", content: content }]
-
+       //const history = [...prev, { role: "user", content: [{ type: "text", text: content }] }] }]
+            const newHistory = history + systemPrompt
             const body = {
                 "messages": history 
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
             }
             console.log(systemPrompt)
-            //if (systemPrompt) body["system"] = systemPrompt
+            //20thmay if (systemPrompt) body["system"] = systemPrompt
             if (systemSt) body["system"] = systemSt
           //  if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
