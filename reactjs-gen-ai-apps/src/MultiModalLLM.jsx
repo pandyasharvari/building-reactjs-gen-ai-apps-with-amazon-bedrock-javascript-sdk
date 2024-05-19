@@ -38,9 +38,7 @@ export default () => {
         console.log(currentModelId)
        const systemPrompt = promptPickerRef.current.getPrompt()
        const systemPromptReal =  `
-
     You are a knowledgeable AI assistant that helps health clinicians with medical information and guidance. Provide detailed and accurate answers to the questions based on your extensive knowledge base and available medical guidelines.
-
     `;
 
 
@@ -54,10 +52,11 @@ export default () => {
         setFiles([])
         console.log(content)
         setMessages(prev => {
-            const history = [...prev, { role: "user", content: content }]
+        //    const history = [...prev, { role: "user", content: content }]
+            const history = [...prev, { role: "user", content: content + systemPrompt }]
+
             const body = {
-              //sharvpa19th may  "messages": history,
-               "messages": history+systemPrompt,
+                "messages": history,
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
             }
             console.log(systemPrompt)
