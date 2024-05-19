@@ -24,11 +24,11 @@ export default ({ columnDefinitions, columnDisplay, itemList, rowClick }) => {
         columnDisplay={columnDisplay}
         wrapLines={true}
         onRowClick={rowClick}
-        empty={<Box><SpaceBetween size="m"><b>No hay</b></SpaceBetween></Box>}
+        empty={<Box><SpaceBetween size="m"><b>Not found</b></SpaceBetween></Box>}
         filter={
             <TextFilter
                 filteringText={filteringText}
-                filteringPlaceholder="Buscar"
+                filteringPlaceholder="Search"
                 onChange={({ detail }) =>
                     setFilteringText(detail.filteringText)}
             />
