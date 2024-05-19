@@ -37,9 +37,7 @@ export default () => {
         const currentModelId = modelPickerRef.current.getModelId()
         console.log(currentModelId)
        const systemPrompt = promptPickerRef.current.getPrompt()
-       let systemSt = 'You are a knowledgeable AI assistant that helps health clinicians with
-           medical information and guidance. Provide detailed and accurate answers to the 
-               questions based on your extensive knowledge base and available medical guidelines'
+       let systemSt = 'You are a knowledgeable AI assistant that helps health clinicians'
     
 
 
@@ -61,7 +59,7 @@ export default () => {
             }
             console.log(systemPrompt)
           //sharvpa 19th may if (systemPrompt) body["system"] = systemPrompt
-            if (systemSt) body["system"] = system
+            if (systemSt) body["system"] = systemSt
           //  if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
