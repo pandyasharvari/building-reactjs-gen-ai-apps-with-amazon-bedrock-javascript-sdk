@@ -54,11 +54,11 @@ export default () => {
        const history = [...prev, { role: "user", content: content }]
 
             const body = {
-                "messages": history + systemPrompt
+                "messages": history 
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
             }
             console.log(systemPrompt)
-          //sharvpa 19th may if (systemPrompt) body["system"] = systemPrompt
+            //if (systemPrompt) body["system"] = systemPrompt
             if (systemSt) body["system"] = systemSt
           //  if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
