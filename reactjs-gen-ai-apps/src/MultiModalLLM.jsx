@@ -37,9 +37,9 @@ export default () => {
         const currentModelId = modelPickerRef.current.getModelId()
         console.log(currentModelId)
        const systemPrompt = promptPickerRef.current.getPrompt()
-       const systemSt = "You are a knowledgeable AI assistant that helps health clinicians with
+       let systemSt = 'You are a knowledgeable AI assistant that helps health clinicians with
            medical information and guidance. Provide detailed and accurate answers to the 
-               questions based on your extensive knowledge base and available medical guidelines." ;
+               questions based on your extensive knowledge base and available medical guidelines'
     
 
 
