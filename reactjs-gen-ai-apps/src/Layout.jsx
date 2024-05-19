@@ -54,7 +54,7 @@ export default () => {
 
                             {
                                 type: "section", text: "Knowledge Bases for Healthscribe AI Assistant", items: [
-                                    { type: 'link', text: `Retrieve => LLM`, href: `/retrieve` },
+                               //sharvpa     { type: 'link', text: `Retrieve => LLM`, href: `/retrieve` },
                                     { type: 'link', text: `Retrieve & Generate`, href: `/retrieveandgenerate` }
                                 ]
                             },
