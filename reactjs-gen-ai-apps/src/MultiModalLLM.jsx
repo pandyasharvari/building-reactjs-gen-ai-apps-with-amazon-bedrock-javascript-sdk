@@ -38,7 +38,9 @@ export default () => {
         console.log(currentModelId)
        const systemPrompt = promptPickerRef.current.getPrompt()
        let system = "
-    You are a knowledgeable AI assistant that helps health clinicians with medical information and guidance. Provide detailed and accurate answers to the questions based on your extensive knowledge base and available medical guidelines."
+     You are a knowledgeable AI assistant that helps health clinicians with
+           medical information and guidance. Provide detailed and accurate answers to the 
+               questions based on your extensive knowledge base and available medical guidelines." ;
     
 
 
