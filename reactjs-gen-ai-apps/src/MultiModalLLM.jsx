@@ -89,7 +89,7 @@ export default () => {
                 </Box>
                 {
                     llmResponse !== "" ?
-                        <Container fitHeight header={<strong>Respuest LLM</strong>}>
+                        <Container fitHeight header={<strong>Request LLM</strong>}>
                             <div dangerouslySetInnerHTML={{ __html: llmResponse }} />
                         </Container> :
                         null
@@ -106,7 +106,7 @@ export default () => {
 
                 <Textarea
                     fitHeight
-                    placeholder="Write something to the model..."
+                    placeholder="Ask your question..."
                     onChange={({ detail }) => { setValue(detail.value) }}
                     value={value}
                     disabled={loading}
