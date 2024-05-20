@@ -55,7 +55,8 @@ export default () => {
        const history = [...prev, { role: "user", content: content }]
             const newHistory = history + systemPrompt
             const body = {
-                "messages": history,
+               //sharvpa20th may "messages": history,
+                "messages": newHistory,
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000,
                 "system": systemSt
 
