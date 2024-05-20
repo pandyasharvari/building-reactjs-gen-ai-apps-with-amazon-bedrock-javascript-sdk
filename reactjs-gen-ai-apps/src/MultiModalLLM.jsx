@@ -46,17 +46,17 @@ export default () => {
      //  const userPrompt =  promptPickerRef.current.getPrompt() //sharvpa added for user prompt
         
         setLoading(true)
-        let content = await buildContent(value, files)
+ //sharvpa20may       let content = await buildContent(value, files)
+        let content = await buildContent(value, systemPrompt, files)
+
         setValue("")
         setFiles([])
         console.log(content)
 
         setMessages(prev => {
        const history = [...prev, { role: "user", content: content }]
-            const newHistory = history + systemPrompt
             const body = {
-               //sharvpa20th may "messages": history,
-                "messages": newHistory,
+                "messages": history,
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000,
                 "system": systemSt
 
