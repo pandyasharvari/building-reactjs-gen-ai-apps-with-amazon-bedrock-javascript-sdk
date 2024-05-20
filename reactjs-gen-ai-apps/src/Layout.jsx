@@ -58,14 +58,14 @@ export default () => {
                                     { type: 'link', text: `Retrieve & Generate`, href: `/retrieveandgenerate` }
                                 ]
                             },
-                            { type: "divider" },
+                    /*        { type: "divider" },
                             {
                                 type: "section", text: "Agents for HealthScribe AI", items: [
                                 { type: 'link', text: `Agents`, href: `/bedrockagent` },
                             ]
                         }
                         ]
-                    }
+                    } sharvpa20may */
                     onFollow={event => {
                         if (!event.detail.external) {
                             event.preventDefault();
