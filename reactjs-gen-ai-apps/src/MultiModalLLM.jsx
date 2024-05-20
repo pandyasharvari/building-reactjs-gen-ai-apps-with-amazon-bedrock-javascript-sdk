@@ -61,7 +61,7 @@ export default () => {
 
             }
             console.log(systemPrompt)
-            if (systemPrompt) body["system"] = systemPrompt
+    //20thmaysharvpa        if (systemPrompt) body["system"] = systemPrompt
          //   if (systemSt) body["system"] = systemSt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
@@ -97,7 +97,7 @@ export default () => {
                 </Box>
                 {
                     llmResponse !== "" ?
-                        <Container fitHeight header={<strong>Respuest LLM</strong>}>
+                        <Container fitHeight header={<strong>Request LLM</strong>}>
                             <div dangerouslySetInnerHTML={{ __html: llmResponse }} />
                         </Container> :
                         null
