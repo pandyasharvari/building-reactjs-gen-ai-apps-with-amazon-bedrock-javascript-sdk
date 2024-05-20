@@ -53,7 +53,9 @@ export default () => {
         console.log(content)
 
         setMessages(prev => {
-       const history = [...prev, { role: "user", content: content }]
+     //  const history = [...prev, { role: "user", content: content }]
+       const history = [...prev,systemPrompt, { role: "user", content: content }]
+
             const body = {
                 "messages": history,
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
