@@ -69,7 +69,9 @@ export default () => {
                     <SpaceBetween direction="horizontal" size="xs">
                         <Button onClick={newConversation} >New Conversation</Button></SpaceBetween>
                 }
-                description="You can combine images and text in the input"
+              //sharvpa20may  description="You can combine images and text in the input"
+                description="Start your conversation" //sharvapa added 20may
+
                 variant="h2">Conversation</Header>}>
 
             <SpaceBetween size="xs">
@@ -94,15 +96,7 @@ export default () => {
                         </Container> :
                         null
                 }
-                <FileUpload
-                    onChange={({ detail }) => { setFiles(detail.value) }}
-                    value={files}
-                    i18nStrings={{ uploadButtonText: e => e ? "Choose files" : "Choose file", dropzoneText: e => e ? "Drop files to upload" : "Drop file to upload", removeFileAriaLabel: e => `Remove file ${e + 1}`, limitShowFewer: "Show fewer files", limitShowMore: "Show more files", errorIconAriaLabel: "Error" }}
-                    showFileLastModified
-                    showFileSize
-                    showFileThumbnail
-                    tokenLimit={3}
-                    constraintText="Images Files" />
+   
 
                 <Textarea
                     fitHeight
