@@ -1,3 +1,5 @@
+Original multimodal
+
 import { useState, useRef, useEffect } from "react"
 import { Box, Spinner, Header, Container, SpaceBetween, Textarea, Button, FileUpload } from "@cloudscape-design/components"
 import MessageList from "./MessageList"
@@ -37,34 +39,23 @@ export default () => {
         const currentModelId = modelPickerRef.current.getModelId()
         console.log(currentModelId)
        const systemPrompt = promptPickerRef.current.getPrompt()
-       let systemSt = 'You are a knowledgeable AI assistant that helps health clinicians'
-    
-
-
-  //sharvpa19thMay
-
+        
      //  const userPrompt =  promptPickerRef.current.getPrompt() //sharvpa added for user prompt
         
         setLoading(true)
-     let content = await buildContent(value, files)
-
+        let content = await buildContent(value, files)
         setValue("")
         setFiles([])
         console.log(content)
-
         setMessages(prev => {
-     //  const history = [...prev, { role: "user", content: content }]
-       const history = [...prev,systemPrompt, { role: "user", content: content }]
-
+            const history = [...prev, { role: "user", content: content }]
             const body = {
                 "messages": history,
                 "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
-              //sharvpa20may  "system": systemSt
-
             }
             console.log(systemPrompt)
-      if (systemPrompt) body["system"] = systemPrompt
-         //   if (systemSt) body["system"] = systemSt
+           if (systemPrompt) body["system"] = systemPrompt
+          //  if (userPrompt) body["system"] = userPrompt //sharvpa added for user prompt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
         })
@@ -99,7 +90,7 @@ export default () => {
                 </Box>
                 {
                     llmResponse !== "" ?
-                        <Container fitHeight header={<strong>Request LLM</strong>}>
+                        <Container fitHeight header={<strong>Respuest LLM</strong>}>
                             <div dangerouslySetInnerHTML={{ __html: llmResponse }} />
                         </Container> :
                         null
@@ -126,3 +117,4 @@ export default () => {
         </Container>
     )
 }
+
