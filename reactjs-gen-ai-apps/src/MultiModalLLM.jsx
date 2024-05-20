@@ -1,4 +1,3 @@
-Original multimodal
 
 import { useState, useRef, useEffect } from "react"
 import { Box, Spinner, Header, Container, SpaceBetween, Textarea, Button, FileUpload } from "@cloudscape-design/components"
