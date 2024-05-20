@@ -59,11 +59,11 @@ export default () => {
                                 ]
                             },
                          { type: "divider" },
-                            {
-                              //  type: "section", text: "Agents for HealthScribe AI", items: [
-                            //    { type: 'link', text: `Agents`, href: `/bedrockagent` },
+                        /*    {
+                                type: "section", text: "Agents for HealthScribe AI", items: [
+                              { type: 'link', text: `Agents`, href: `/bedrockagent` },
                             ]
-                        }
+                        }*/
                         ]
                     } 
                     onFollow={event => {
