@@ -57,7 +57,7 @@ export default () => {
                                //sharvpa     { type: 'link', text: `Retrieve => LLM`, href: `/retrieve` },
                                     { type: 'link', text: `Retrieve & Generate`, href: `/retrieveandgenerate` }
                                 ]
-                            },
+                            }
                     /*        { type: "divider" },
                             {
                                 type: "section", text: "Agents for HealthScribe AI", items: [
