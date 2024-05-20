@@ -46,8 +46,7 @@ export default () => {
      //  const userPrompt =  promptPickerRef.current.getPrompt() //sharvpa added for user prompt
         
         setLoading(true)
- //sharvpa20may       let content = await buildContent(value, files)
-        let content = await buildContent(value, systemPrompt, files)
+     let content = await buildContent(value, files)
 
         setValue("")
         setFiles([])
@@ -57,12 +56,12 @@ export default () => {
        const history = [...prev, { role: "user", content: content }]
             const body = {
                 "messages": history,
-                "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000,
-                "system": systemSt
+                "anthropic_version": "bedrock-2023-05-31", "max_tokens": 1000
+              //sharvpa20may  "system": systemSt
 
             }
             console.log(systemPrompt)
-    //20thmaysharvpa        if (systemPrompt) body["system"] = systemPrompt
+      if (systemPrompt) body["system"] = systemPrompt
          //   if (systemSt) body["system"] = systemSt
             invokeModelStreaming(body, currentModelId, { callbacks: [{ handleLLMNewToken }] })
             return history
