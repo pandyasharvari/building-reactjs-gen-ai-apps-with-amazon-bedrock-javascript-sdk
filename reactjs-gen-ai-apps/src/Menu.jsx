@@ -55,7 +55,7 @@ const Menu = ({ signOut, groups, ...user }) => {
           items: [
             { id: "email", text: user.signInDetails?.loginId },
             {
-              id: "signout", text: "singout"
+              id: "signout", text: "Sign out"
             }
           ]
 
