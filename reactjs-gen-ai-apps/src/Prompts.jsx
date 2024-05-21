@@ -41,7 +41,7 @@ export default () => {
     return (
    
             <BasicCollection
-                headerText={"My Prompts"}
+                headerText={"Prompts"}
                 itemList={itemList}
                 columnDefinitions={columnDefinitions}
                 columnDisplay={columnDisplay}
