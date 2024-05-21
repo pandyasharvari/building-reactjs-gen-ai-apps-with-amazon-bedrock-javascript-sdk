@@ -38,7 +38,7 @@ export default () => {
                                 ]
                             },
                             {
-                                type: "section", text: "User Prompts", items: [ //sharvpa changed from system to use prompts
+                                type: "section", text: "Prompts", items: [ //sharvpa changed from system to use prompts
                                     { type: "link", href: "/prompt", text: "Prompts" },
                                     
                                 ]
