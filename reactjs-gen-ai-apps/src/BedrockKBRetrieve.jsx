@@ -1,4 +1,4 @@
-import {useState, useRef } from "react"
+import {useState, useRef, useEffect } from "react"
 
 import { Box, Spinner, Header, Container, SpaceBetween, Textarea, Button } from "@cloudscape-design/components"
 import MessageList from "./MessageList"
@@ -20,13 +20,13 @@ export default () => {
     const childRef = useRef(null);
     const childRef2 = useRef(null);
     const childRef3 = useRef(null);
-    const promptPickerRef = useRef(null);
  
 
     const handleLLMNewToken = ({ type, content_block, delta }) => {
         handleStreamingTokenResponse({ type, content_block, delta }, setLLMResponse, setMessages, setLoading)
     }
 
+    const promptPickerRef = useRef(null);
 
     const sendText = async () => {
         setLoading(true)
@@ -70,6 +70,7 @@ export default () => {
             <SpaceBetween size="xs">
                 <BedrockKBLoader ref={childRef} key={1} />
                 <FMPicker ref={childRef2} multimodal={true} key={3} />
+                 <PromptPicker ref={promptPickerRef} />
 
                 <Box data-id="chat-window">
                     {
