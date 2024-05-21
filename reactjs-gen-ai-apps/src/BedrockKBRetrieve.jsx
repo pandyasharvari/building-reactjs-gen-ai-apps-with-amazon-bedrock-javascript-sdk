@@ -41,7 +41,6 @@ export default () => {
         const question = await getStandaloneQuestion({modelId:currentModelId, messages:messages,  question:  value})
         console.log("standalone question:", question)
         setLLMResponse(msg => msg + `Understood: <strong>${question}</strong><br/>`)
-       const systemPrompt = promptPickerRef.current.getPrompt()
 
         const retriever = await getBedrockKnowledgeBaseRetriever(currentKb.value)
         const docs = await retriever.invoke(question)   
