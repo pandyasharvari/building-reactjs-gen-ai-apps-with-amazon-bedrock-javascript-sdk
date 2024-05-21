@@ -40,7 +40,7 @@ export default forwardRef(({ }, ref) => {
     return (
 
         <Grid gridDefinition={[{ colspan: 12}]}>
-            <FormField label="User Prompt">
+            <FormField label="List of Prompts">
                 <Select selectedOption={selectedOption}
                     label="Prompt"
                     onChange={({ detail }) => {
