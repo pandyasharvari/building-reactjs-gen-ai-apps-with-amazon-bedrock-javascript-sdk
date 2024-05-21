@@ -121,10 +121,8 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query,
                 knowledgeBaseId: knowledgeBaseId,
                 modelArn: `arn:aws:bedrock:${region}::foundation-model/${modelId}`
             },
-         'generationConfiguration': {
-                        'promptTemplate': {
-                            'textPromptTemplate': promptTemplate
-                        }
+            generationConfiguration: {
+                        promptTemplate: promptTemplate
                     }
             },
 
