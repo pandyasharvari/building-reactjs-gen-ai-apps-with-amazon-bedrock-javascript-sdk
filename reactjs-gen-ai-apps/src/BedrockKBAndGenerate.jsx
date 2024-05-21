@@ -6,6 +6,7 @@ import BedrockKBLoader from "./BedrockKBLoader"
 import { ragBedrockKnowledgeBase } from "./llmLib"
 import FMPicker from "./FMPicker"
 import { buildContent } from "./messageHelpers"
+import PromptPicker from "./PromptPicker"
 
 
 export default () => {
@@ -16,12 +17,15 @@ export default () => {
 
     const childRef = useRef(null)
     const childRef2 = useRef(null)
+    const promptPickerRef = useRef(null);
 
 
     const sendText = async () => {
         setLoading(true)
         const currentKb = childRef.current.getSelectedOption()
         const currentModelId = childRef2.current.getModelId()
+        const systemPrompt = promptPickerRef.current.getPrompt()
+
         let content = await buildContent(value, [])
         setValue("")
         setMessages(prev => [...prev, { role: "user", content: content }])
@@ -61,7 +65,7 @@ export default () => {
             <SpaceBetween size="xs">
                 <BedrockKBLoader ref={childRef} key={10} />
                 <FMPicker ref={childRef2} multimodal={true}key={2} />
-
+                <PromptPicker ref={promptPickerRef} />
                 <Box data-id="chat-window" key={3}>
                     {
                         messages.length ?
@@ -76,7 +80,7 @@ export default () => {
                 <Textarea
                     fitHeight
                     key={4}
-                    placeholder="Write something to the model..."
+                    placeholder="What is your query..."
                     onChange={({ detail }) => { setValue(detail.value) }}
                     onKeyUp={event => processKeyUp(event.detail.keyCode)}
                     value={value}
