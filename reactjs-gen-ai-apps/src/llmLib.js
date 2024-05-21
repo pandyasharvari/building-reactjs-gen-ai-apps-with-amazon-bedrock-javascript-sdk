@@ -105,8 +105,10 @@ export const getBedrockAgentAliases = async (client, agent) => {
 }
 
 
-
-export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query, modelId = "anthropic.claude-instant-v1") => {
+//sharvpa21stmay added for prompt
+//export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query, modelId = "anthropic.claude-instant-v1") => {
+export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query, promptTemplate, modelId = "anthropic.claude-instant-v1") => {
+ 
     const session = await fetchAuthSession()
     let region = session.identityId.split(":")[0]
 
@@ -119,6 +121,13 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query,
                 knowledgeBaseId: knowledgeBaseId,
                 modelArn: `arn:aws:bedrock:${region}::foundation-model/${modelId}`
             },
+         'generationConfiguration': {
+                        'promptTemplate': {
+                            'textPromptTemplate': promptTemplate
+                        }
+                    }
+            },
+
         }
     }
 
