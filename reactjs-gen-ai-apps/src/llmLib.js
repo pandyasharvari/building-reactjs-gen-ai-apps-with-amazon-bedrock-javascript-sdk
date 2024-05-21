@@ -114,7 +114,8 @@ export const ragBedrockKnowledgeBase = async (sessionId, knowledgeBaseId, query,
 
     const client = new BedrockAgentRuntimeClient({ region: region, credentials: session.credentials })
     const input = {
-        input: { text: query },
+        
+        input: { text: promptTemplate + query  },
         retrieveAndGenerateConfiguration: {
             type: "KNOWLEDGE_BASE",
             knowledgeBaseConfiguration: {
