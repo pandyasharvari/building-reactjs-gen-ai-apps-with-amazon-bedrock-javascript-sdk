@@ -8,6 +8,7 @@ import FMPicker from "./FMPicker";
 import { answerQuestionWithContext, getStandaloneQuestion } from "./questionGenerator";
 import { buildContent, handleStreamingTokenResponse } from "./messageHelpers";
 import { filterDocsByScore } from "./questionGenerator";
+import PromptPicker from "./PromptPicker"
 
 export default () => {
 
@@ -19,7 +20,8 @@ export default () => {
     const childRef = useRef(null);
     const childRef2 = useRef(null);
     const childRef3 = useRef(null);
-
+    const promptPickerRef = useRef(null);
+ 
 
     const handleLLMNewToken = ({ type, content_block, delta }) => {
         handleStreamingTokenResponse({ type, content_block, delta }, setLLMResponse, setMessages, setLoading)
@@ -30,12 +32,16 @@ export default () => {
         setLoading(true)
         let currentKb = childRef.current.getSelectedOption()
         let currentModelId = childRef2.current.getModelId()
+        console.log(currentModelId)
+        const systemPrompt = promptPickerRef.current.getPrompt()
+
         let content = await buildContent(value, [])
         setValue("")
         setMessages(prev => [...prev,{ role: "user", content: content }])
         const question = await getStandaloneQuestion({modelId:currentModelId, messages:messages,  question:  value})
         console.log("standalone question:", question)
         setLLMResponse(msg => msg + `Understood: <strong>${question}</strong><br/>`)
+       const systemPrompt = promptPickerRef.current.getPrompt()
 
         const retriever = await getBedrockKnowledgeBaseRetriever(currentKb.value)
         const docs = await retriever.invoke(question)   
@@ -79,7 +85,7 @@ export default () => {
                 </Box>
                 {
                     llmResponse !== "" ?
-                        <Container fitHeight header={<strong>Respuest LLM</strong>}>
+                        <Container fitHeight header={<strong>Request LLM</strong>}>
                             <div dangerouslySetInnerHTML={{ __html: llmResponse }} />
                         </Container> :
                         null
@@ -88,7 +94,7 @@ export default () => {
                     fitHeight
                     onBlur={childRef3?.current?.focus()}
                     ref={childRef3}
-                    placeholder="Write something to the model..."
+                    placeholder="What is your query..."
                     onChange={({ detail }) => {setValue(detail.value) }}
                     onKeyUp={event => processKeyUp(event.detail.keyCode)}
                     value={value}
