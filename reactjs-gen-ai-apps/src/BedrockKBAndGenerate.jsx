@@ -30,7 +30,7 @@ export default () => {
         setValue("")
         setMessages(prev => [...prev, { role: "user", content: content }])
 
-        const response = await ragBedrockKnowledgeBase(sessionId, currentKb.value, value, currentModelId)
+        const response = await ragBedrockKnowledgeBase(sessionId, currentKb.value, value, systemPrompt, currentModelId)
         let text = response?.output?.text
         setSessionId(response.sessionId)
 
